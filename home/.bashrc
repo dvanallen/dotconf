@@ -70,6 +70,7 @@ alias nmount="sshfs dvan@ninjabox.biz:/srv/media /media/ninja"
 alias ninja='ssh dvan@ninjabox.biz'
 alias dvaorg="ssh dvan@danielvanallen.org"
 alias cs1="ssh djv091020@cs1.utdallas.edu"
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 man() {
         env \
