@@ -17,6 +17,7 @@ then
     /usr/bin/firefox "$URL"
 elif [ $CNTCH -ge 1 ] 
 then
+    sudo killall chromium	
     /usr/bin/chromium "$URL"
 else
     echo "No running browser instance"
