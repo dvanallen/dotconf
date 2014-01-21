@@ -1,1 +1,28 @@
+source ~/.antigen/antigen.zsh clone/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from oh-my-zsh
+antigen bundle git
+antigen bundle command-not-found
+antigen bundle screen
+antigen bundle rsync
+antigen bundle zsh-users/zsh-completions src
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen theme robbyrussell
+
+# Tell antigen that you're done.
+antigen apply
+
+# Define aliases.
+export EDITOR="vim"
+export TERM="rxvt-unicode"
+alias nmount="sshfs dvan@ninjabox.biz:/srv/media /media/ninja"
+alias ninja='ssh dvan@ninjabox.biz'
+alias dvaorg="ssh dvan@danielvanallen.org"
+alias cs1="ssh djv091020@cs1.utdallas.edu"
+
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
