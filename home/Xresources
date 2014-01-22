@@ -101,7 +101,7 @@ URxvt*boldFont:           xft:Inconsolata:style=bold:pixelsize=14:antialias=true
 ! URxvt*perl-lib:           string
 ! URxvt*perl-eval:          perl-eval
 URxvt*perl-ext-common:    default,matcher
-URxvt*url-launcher:	    /home/dvan/.openurl
+URxvt*url-launcher:	    /usr/bin/chromium
 URxvt*matcher.button:	    1
 ! URxvt*perl-ext:           string
 ! URxvt*iso14755:           boolean
