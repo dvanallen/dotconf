@@ -27,7 +27,6 @@ antigen apply
 
 # Define aliases.
 export EDITOR="vim"
-export TERM="rxvt-unicode"
 alias nmount="mount /media/ninja"
 alias numount="fusermount -u /media/ninja"
 alias ninja='ssh dvan@ninjabox.biz'
