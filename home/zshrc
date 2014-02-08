@@ -7,13 +7,17 @@ autoload -U colors && colors
 autoload -U promptinit && promptinit
 autoload -U compinit && compinit
 
-# Bundles from oh-my-zsh
-antigen bundle git
-antigen bundle command-not-found
-antigen bundle screen
-antigen bundle rsync
-antigen bundle zsh-users/zsh-completions src
-antigen bundle zsh-users/zsh-syntax-highlighting
+antigen-bundles <<EOBUNDLES
+
+git
+command-not-found
+screen
+rsync
+extract
+zsh-users/zsh-completions src
+zsh-users/zsh-syntax-highlighting
+
+EOBUNDLES
 
 # Load the theme.
 antigen-theme dvanallen/zsh_themes themes/low_key
