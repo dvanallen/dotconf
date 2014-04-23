@@ -68,6 +68,12 @@ URxvt*tripleclickwords:   true
 ! URxvt*iconFile:           file
 URxvt*font:               xft:Inconsolata:style=Semibold:pixelsize=14:antialias=true:hinting=slight
 URxvt*boldFont:           xft:Inconsolata:style=bold:pixelsize=14:antialias=true:hinting=slight
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1Xft.rgba: rgb
+Xft.dpi: 96
 ! URxvt*italicFont:         fontname
 ! URxvt*boldItalicFont:     fontname
 ! URxvt*intensityStyles:    boolean
@@ -108,6 +114,10 @@ URxvt*matcher.button:	    1
 ! URxvt*iso14755_52:        boolean
 ! URxvt*xrm:                string
 ! URxvt*keysym.sym:         keysym
+
+URxvt*eightBitInput: false
+URxvt*metaSendsEscape: true
+URxvt*modifier: super
 
 ! Solarized color scheme for the X Window System
 ! !
