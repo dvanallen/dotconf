@@ -1,19 +1,23 @@
-#!/bin/sh
+#!/bin/bash
 
-#If we dont have the dotconf files for some reason, grab them.
-if [ ! -d ~/dotconf ]
-then
-    git clone --recursive https://github.com/dvanallen/dotconf.git ~/dotconf
+#Git the newest version of the dotfiles
+if [ ! -d ~/.dotconf ]; then
+    git clone --recursive https://github.com/dvanallen/dotconf.git ~/.dotconf
+else
+    git --git-dir=$HOME/.dotconf/.git/ --work-tree=$HOME/.dotconf pull --ff-only --recurse-submodules=on-demand
 fi
 
 #Make a backup of existing dotconf files and copy over the new ones.
-DOTCONF_FILES=~/dotconf/home/*
-for file in $DOTCONF_FILES
-do
-    if [ -f ~/.${file##*/} ]
+BACKUP_DIR=~/.dotbackup/$(date +%y%m%d%H%M%S)
+mkdir -p $BACKUP_DIR
+for file in ~/.dotconf/home/*; do
+    #Use greedy glob removal to grab the basename of each dotfile.
+    BASENAME=${file##*/}
+    if [ -f ~/.$BASENAME ]
     then
-        mv ~/.${file##*/} ~/.${file##*/}.bk
+        mv ~/.$BASENAME $BACKUP_DIR/.$BASENAME
     fi
-    cp -r ~/dotconf/home/${file##*/} ~/.${file##*/}
+    cp -r ~/.dotconf/home/$BASENAME ~/.$BASENAME
 done
 
+echo "Don't forget to source the shell profile!"

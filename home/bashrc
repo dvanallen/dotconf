@@ -9,13 +9,10 @@ esac
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
+HISTSIZE=1000000
+HISTFILESIZE=1000000
 
-# append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -25,14 +22,21 @@ shopt -s checkwinsize
 # match all files and zero or more directories and subdirectories.
 shopt -s globstar
 
-# enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+fi
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+alias ls='ls -AlhF --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+function say { mplayer -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$1" &> /dev/null; }
+
+if [ -n "$SSH_CLIENT" ]; then
+    if which tmux 2>&1 >/dev/null; then
+        test -z "$TMUX" && (tmux attach || tmux new-session)
+    fi
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -62,13 +66,6 @@ if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-no
         fi
     }
 fi
-
-export EDITOR="vim"
-alias nmount="mount /media/ninja"
-alias numount="fusermount -u /media/ninja"
-alias ninja='ssh dvan@ninjabox.biz'
-alias dvaorg="ssh dvan@danielvanallen.org"
-alias cs1="ssh djv091020@cs1.utdallas.edu"
 
 man() {
         env \
@@ -120,23 +117,23 @@ bash_prompt() {
 
     # regular colors
 #    local K="\[\033[0;30m\]"    # black
-#    local R="\[\033[0;31m\]"    # red
+    local R="\[\033[0;31m\]"    # red
 #    local G="\[\033[0;32m\]"    # green
 #    local Y="\[\033[0;33m\]"    # yellow
-#    local B="\[\033[0;34m\]"    # blue
+    local B="\[\033[0;34m\]"    # blue
 #    local M="\[\033[0;35m\]"    # magenta
 #    local C="\[\033[0;36m\]"    # cyan
-#    local W="\[\033[0;37m\]"    # white
+    local W="\[\033[0;37m\]"    # white
 
     # emphasized (bolded) colors
-    local EMK="\[\033[1;30m\]"
-    local EMR="\[\033[1;31m\]"
+#    local EMK="\[\033[1;30m\]"
+#    local EMR="\[\033[1;31m\]"
 #    local EMG="\[\033[1;32m\]"
 #    local EMY="\[\033[1;33m\]"
-    local EMB="\[\033[1;34m\]"
+#    local EMB="\[\033[1;34m\]"
 #    local EMM="\[\033[1;35m\]"
 #    local EMC="\[\033[1;36m\]"
-    local EMW="\[\033[1;37m\]"
+#    local EMW="\[\033[1;37m\]"
 
     # background colors
 #    local BGK="\[\033[40m\]"
@@ -149,10 +146,10 @@ bash_prompt() {
 #    local BGW="\[\033[47m\]"
 
 
-    local UC=$EMW                 # user's color
+    local UC=$W                 # user's color
     [ $UID -eq "0" ] && UC=$EMR   # root's color
 
-PS1="${EMK}$(date +%H:%M) ${UC}\u${EMR}@${EMW}\h ${EMB}\${NEW_PWD}${EMW}>${NONE}"
+PS1="${NONE}$(date +%H:%M) ${UC}\u${R}@${W}\h ${B}\${NEW_PWD}${W}> ${NONE}"
 }
 
 PROMPT_COMMAND=bash_prompt_command
