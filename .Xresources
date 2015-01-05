@@ -72,7 +72,8 @@ Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
 Xft.hinting: 1
-Xft.antialias: 1Xft.rgba: rgb
+Xft.antialias: 1
+Xft.rgba: rgb
 Xft.dpi: 96
 ! URxvt*italicFont:         fontname
 ! URxvt*boldItalicFont:     fontname
@@ -107,7 +108,7 @@ Xft.dpi: 96
 ! URxvt*perl-lib:           string
 ! URxvt*perl-eval:          perl-eval
 URxvt*perl-ext-common:    default,matcher
-URxvt*url-launcher:	    /usr/bin/chromium
+URxvt*url-launcher:	    /usr/bin/firefox
 URxvt*matcher.button:	    1
 ! URxvt*perl-ext:           string
 ! URxvt*iso14755:           boolean
@@ -160,13 +161,8 @@ URxvt*modifier: super
 ! #define S_base3         #002b36
 !
 !
-! ! To only apply colors to your terminal, for example, prefix
-! ! the color assignment statement with its name. Example:
-! !
-! ! URxvt*background:            S_base03
-!
-*background:              S_base03
-*foreground:              S_base0
+URxvt*background:              S_base03
+URxvt*foreground:              S_base0
 ! *fading:                  30
 ! *fadeColor:               S_base03
 *cursorColor:             S_base1
@@ -183,11 +179,10 @@ URxvt*modifier: super
 *color7:                  S_base2
 *color9:                  S_orange
 !*color8:                  S_base03
-color8:                   #111111
+*color8:                   #111111
 *color10:                 S_base01
 *color11:                 S_base00
 *color12:                 S_base0
 *color13:                 S_violet
 *color14:                 S_base1
 *color15:                 S_base3
-
