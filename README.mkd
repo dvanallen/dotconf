@@ -1,6 +1,0 @@
-Usage:
-
-`git clone --recursive https://github.com/dvanallen/dotconf.git ~/dotconf`  
-`~/dotconf/setup.sh`
-
-Note: makes backups of existing dotfiles as .file.bk, but doesn't check for existing .bk files yet
