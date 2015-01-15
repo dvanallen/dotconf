@@ -41,10 +41,13 @@ set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
-"set incsearch		" Incremental search
+set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
 set mouse=v		" Enable mouse usage (all modes)
+
+set hlsearch
+set magic
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -64,3 +67,24 @@ set expandtab
 set smarttab
 set nowrap
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+set history=1000
+set undolevels=1000
+set title
+set lazyredraw
+
+" Don't beep
+set visualbell
+set noerrorbells
+
+set encoding=utf-8
+set nomodeline " For security
+set autoread
+
+set laststatus=2
+set ruler
+set number
+
+" For the all to often :Q typo
+command! -bang Q q<bang>
