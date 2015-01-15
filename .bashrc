@@ -33,12 +33,6 @@ alias egrep='egrep --color=auto'
 
 function say { mplayer -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$1" &> /dev/null; }
 
-if [ -n "$SSH_CLIENT" ]; then
-    if which tmux 2>&1 >/dev/null; then
-        test -z "$TMUX" && (tmux attach || tmux new-session)
-    fi
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
