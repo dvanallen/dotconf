@@ -32,8 +32,11 @@ endif
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
 if has("autocmd")
-  filetype plugin on
+  filetype plugin indent on
 endif
+
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType js setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
@@ -58,10 +61,10 @@ set wrapscan
 autocmd FileType plaintext setlocal spell spelllang=en_us
 set whichwrap=b,s,<,>,[,]
 set t_Co=256
-set tabstop=4
+set tabstop=8
 set autoindent
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=8
+set shiftwidth=8
 set shiftround
 set expandtab
 set smarttab
@@ -86,5 +89,12 @@ set laststatus=2
 set ruler
 set number
 
+"Center screen after searching
+nnoremap N Nzz
+nnoremap n nzz
+
+set scrolloff=4
 " For the all to often :Q typo
 command! -bang Q q<bang>
+
+execute pathogen#infect()

@@ -20,7 +20,10 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-shopt -s globstar
+if [ ! "$(uname -s)" = Darwin ]; then
+	shopt -s globstar
+	function say { mplayer -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$1" &> /dev/null; }
+fi
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -30,8 +33,6 @@ alias ls='ls -AlhF --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-
-function say { mplayer -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$1" &> /dev/null; }
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -176,3 +177,10 @@ popd()
 }
 
 alias cd='pushd'
+
+if [ -n "$SSH_CLIENT" ]; then
+    if which tmux 2>&1 >/dev/null; then
+        test -z "$TMUX" && (tmux attach || tmux new-session)
+    fi
+fi
+

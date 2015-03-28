@@ -1,3 +1,15 @@
 [submodule "antigen"]
 	path = home/antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule ".vim/bundle/tern_for_vim"]
+	path = .vim/bundle/tern_for_vim
+	url = https://github.com/marijnh/tern_for_vim.git
+[submodule ".vim/bundle/jshint.vim"]
+	path = .vim/bundle/jshint.vim
+	url = https://github.com/wookiehangover/jshint.vim.git
+[submodule ".vim/bundle/vim-go"]
+	path = .vim/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule ".vim/bundle/YouCompleteMe"]
+	path = .vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
