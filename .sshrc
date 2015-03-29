@@ -1,0 +1,16 @@
+export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
+
+tmuxrc() {
+    local TMUXDIR=/tmp/dvanallentmuxserver
+    if ! [ -d $TMUXDIR ]; then
+        rm -rf $TMUXDIR
+        mkdir -p $TMUXDIR
+    fi
+    rm -rf $TMUXDIR/.sshrc.d
+    cp -r $SSHHOME/.sshrc $SSHHOME/bashsshrc $SSHHOME/sshrc $SSHHOME/.sshrc.d $TMUXDIR
+    SSHHOME=$TMUXDIR SHELL=$TMUXDIR/bashsshrc /usr/bin/tmux -S $TMUXDIR/tmuxserver $@
+}
+export SHELL=`which bash`
+alias tmux="tmuxrc -f $SSHHOME/.sshrc.d/.tmux.conf"
+source $SSHHOME/.sshrc.d/.bashrc
+

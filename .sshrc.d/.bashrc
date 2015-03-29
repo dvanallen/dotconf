@@ -34,7 +34,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-if which -s sshrc; then alias ssh='sshrc'; fi
+alias ssh='sshrc'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -182,7 +182,7 @@ alias cd='pushd'
 
 if [ -n "$SSH_CLIENT" ]; then
     if which tmux 2>&1 >/dev/null; then
-        test -z "$TMUX" && (tmux attach || tmux new-session)
+            test -z "$TMUX" && (tmux attach || tmux new-session)
     fi
 fi
 
