@@ -12,5 +12,5 @@ tmuxrc() {
 }
 export SHELL=`which bash`
 alias tmux="tmuxrc -f $SSHHOME/.sshrc.d/.tmux.conf"
-source $SSHHOME/.sshrc.d/.bashrc
 
+source $SSHHOME/.sshrc.d/.bashrc
