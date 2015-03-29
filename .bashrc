@@ -153,33 +153,6 @@ PROMPT_COMMAND=bash_prompt_command
 bash_prompt
 unset bash_prompt
 
-pushd()
-{
-  if [ $# -eq 0 ]; then
-    DIR="${HOME}"
-  else
-    DIR="$1"
-  fi
-
-  builtin pushd "${DIR}" > /dev/null
-  echo -n "DIRSTACK: "
-  dirs
-}
-
-pushd_builtin()
-{
-  builtin pushd > /dev/null
-  echo -n "DIRSTACK: "
-  dirs
-}
-
-popd()
-{
-  builtin popd > /dev/null
-}
-
-alias cd='pushd'
-
 if [ -n "$SSH_CLIENT" ]; then
     if which tmux 2>&1 >/dev/null; then
         test -z "$TMUX" && (tmux attach || tmux new-session)

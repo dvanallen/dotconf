@@ -4,7 +4,7 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 if [ "$(uname -s)" = Darwin ]; then
-	export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+	export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 else
         eval `ssh-agent`
