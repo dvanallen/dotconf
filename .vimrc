@@ -97,4 +97,7 @@ set scrolloff=4
 " For the all to often :Q typo
 command! -bang Q q<bang>
 
-execute pathogen#infect()
+if filereadable(expand("~/.vim/autoload/pathogen.vim"))
+        execute pathogen#infect()
+endif
+
