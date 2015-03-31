@@ -59,6 +59,8 @@ endif
 
 set wrapscan
 autocmd FileType plaintext setlocal spell spelllang=en_us
+autocmd FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 set whichwrap=b,s,<,>,[,]
 set t_Co=256
 set tabstop=8
