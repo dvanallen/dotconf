@@ -128,7 +128,7 @@ bash_prompt() {
 #    local EMB="\[\033[1;34m\]"
 #    local EMM="\[\033[1;35m\]"
 #    local EMC="\[\033[1;36m\]"
-#    local EMW="\[\033[1;37m\]"
+    local EMW="\[\033[1;37m\]"
 
     # background colors
 #    local BGK="\[\033[40m\]"
@@ -141,10 +141,10 @@ bash_prompt() {
 #    local BGW="\[\033[47m\]"
 
 
-    local UC=$W                 # user's color
-    [ $UID -eq "0" ] && UC=$EMR   # root's color
+    local UC=$EMW                 # user's color
+    [ $UID -eq "0" ] && UC=$R   # root's color
 
-PS1="${NONE}$(date +%H:%M) ${UC}\u${R}@${W}\h ${B}\${NEW_PWD}${W}> ${NONE}"
+PS1="${NONE}\$(date +%H:%M) ${UC}\u${R}@${EMW}\h ${B}\${NEW_PWD}${EMW}> ${NONE}"
 }
 
 PROMPT_COMMAND=bash_prompt_command
